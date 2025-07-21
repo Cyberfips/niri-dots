@@ -7,5 +7,9 @@ swaybg
 kitty
 xwayland-satellite
 polkit gnome
-sayidle
+swayidle
 catppuccin-mocha-mauve-cursors
+CascadiaCode File manager: Thunar
+Thunar
+blueman
+nm-connections-editor
