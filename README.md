@@ -3,7 +3,7 @@ This is my first niri dot files
 
 Credits :  @DoubleDotStudios for the niri-dotfiles , @sansroot for the hyprland dots
 
-Dependencies
+###Dependencies
 
 Window manager: Niri
 
