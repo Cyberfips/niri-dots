@@ -1,7 +1,7 @@
 # niri-dots
 This is my first niri dot files
 
-##Credits :  @DoubleDotStudios for the niri-dotfiles , @sansroot for the hyprland dots
+Credits :  @DoubleDotStudios for the niri-dotfiles , @sansroot for the hyprland dots
 
 Dependencies
 
