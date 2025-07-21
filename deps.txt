@@ -1,0 +1,11 @@
+niri
+waybar
+rofi-wayland
+dunst
+hyprlock
+swaybg
+kitty
+xwayland-satellite
+polkit gnome
+sayidle
+catppuccin-mocha-mauve-cursors
