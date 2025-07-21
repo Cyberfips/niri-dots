@@ -9,7 +9,7 @@ xwayland-satellite
 polkit gnome
 swayidle
 catppuccin-mocha-mauve-cursors
-CascadiaCode File manager: Thunar
+CascadiaCode
 Thunar
 blueman
 nm-connections-editor
