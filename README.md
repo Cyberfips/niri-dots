@@ -5,6 +5,8 @@ Credits :  @DoubleDotStudios for the niri-dotfiles , @sansroot for the hyprland 
 
 Dependencies
 
+niri
+
 Window manager: Niri
 
 Panel Bar: waybar
