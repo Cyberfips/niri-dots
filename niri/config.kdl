@@ -1,5 +1,5 @@
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "/usr/lib/xdg-desktop-portal-xapp"
+spawn-at-startup "/usr/lib/xdg-desktop-portal-wlr"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "/home/rocklin/Pictures/Grey-Spaceman.png" "-m" "fill"
@@ -13,8 +13,16 @@ workspace "3"
 prefer-no-csd
 
 environment {
-    DISPLAY ":0"
-    QT_QPA_PLATFORM "wayland"
+    DISPLAY ":1"
+    ELM_DISPLAY "wl"
+    GDK_BACKEND "wayland,x11"
+    MOZ_ENABLE_WAYLAND "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_QPA_PLATFORM "wayland-egl"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    SDL_VIDEODRIVER "wayland"
+    CLUTTER_BACKEND "wayland"
 }
 
 hotkey-overlay {
@@ -24,29 +32,32 @@ hotkey-overlay {
 cursor {
     xcursor-theme "catppuccin-mocha-mauve-cursors"
     xcursor-size 25
+    hide-when-typing
     hide-after-inactive-ms 5000
 }
 
 input {
     keyboard {
+        track-layout "global"
+        repeat-delay 350
+        repeat-rate 30
         xkb {
             layout "us"
             options "ctrl:nocaps"
         }
 
-        repeat-delay 400
-        repeat-rate 25
-        track-layout "global"
     }
 
     touchpad {
         tap
+        natural-scroll
         accel-profile "flat"
         scroll-method "two-finger"
     }
 
     mouse {
-        accel-profile "flat"
+        accel-profile "adaptive"
+        accel-speed -0.1
         middle-emulation
     }
 
@@ -56,7 +67,9 @@ input {
 }
 
 output "eDP-1" {
-    scale 1.25
+    scale 1
+    
+    mode "1920x1080@60.201"
 
     transform "normal"
 
@@ -86,13 +99,20 @@ layout {
     default-column-width { proportion 0.99; }
 
     focus-ring {
-        off
+        width 4
     }
 
     border {
-        width 3
+        off
+        width 1
         active-color "#cba6f7"
         inactive-color "#6c7086"
+    }
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
     }
 }
 
@@ -110,9 +130,197 @@ window-rule {
 }
 
 window-rule {
+    match app-id="kitty"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="xfce4-terminal"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="chat-gpt"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="net.davidotek.pupgui2"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.gnome.NetworkDisplays"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="btrfs-assistant"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="cpupower-gui"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.gnome.DiskUtility"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="CachyOSHello"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.cachyos.KernelManager"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.cachyos.cachyos-pi"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.cachyos.scx-manager"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="org.gnome.seahorse.Application"
+    default-column-width { proportion 0.5; }
+    open-maximized false
+    open-floating true
+}
+
+window-rule {
+    match app-id="galculator"
+    default-column-width { proportion 0.3; }
+    open-floating true
+}
+
+window-rule {
+    match app-id="nm-connection-editor"
+    default-column-width { proportion 0.3; }
+    open-floating true
+}
+
+window-rule {
+    match app-id="xarchiver"
+    default-column-width { proportion 0.4; }
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    default-column-width { proportion 0.4; }
+    open-floating true
+}
+
+
+window-rule {
+    match app-id="qbittorrent"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="floorp"
+    default-column-width { fixed 1425; }
+    draw-border-with-background true    
+}
+
+window-rule {
+    match app-id="Brave-browser"
+    default-column-width { fixed 1425; }
+    draw-border-with-background true
+    open-maximized true    
+}
+
+window-rule {
+    match app-id="fdm"
+    default-column-width { proportion 0.4; }
+    open-maximized false
+}
+
+window-rule {
+    match app-id="localsend"
+    default-column-width { proportion 0.4; }
+    open-maximized true
+}
+
+window-rule {
+    match app-id="org.kde.kdeconnect.app"
+    default-column-width { proportion 0.4; }
+    open-maximized false
+}
+
+window-rule {
+    match app-id="org.gnome.gedit"
+    default-column-width { proportion 0.4; }
+    open-maximized false
+}
+
+window-rule {
+    match app-id="org.gnome.Snapshot"
+    default-column-width { proportion 0.4; }
+    open-maximized false
+}
+
+window-rule {
+    match app-id="wasistlos"
+    default-column-width { proportion 0.4; }
+    open-maximized false
+}
+
+window-rule {
+    match app-id="vlc"
+    default-column-width { proportion 0.4; }
+    open-maximized true
+}
+
+window-rule {
+    match app-id="thunar"
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="stacer"
+    open-floating true
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id="lutris"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="rpcs3"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="onlyoffice"
+    default-column-width { fixed 1256; }
+}
+
+window-rule {
+    match app-id="obs-studio"
+    default-column-width { fixed 1256; }
+}
+
+window-rule {
+    match app-id="Waydroid"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
     match app-id=r#"kitty$"# title="^tty-clock$"
 
-    open-floating true
+    tiled-state true
     default-column-width { proportion 0.3; }
     default-window-height { proportion 0.3; }
     default-floating-position x=7 y=7 relative-to="top-right"
@@ -121,14 +329,14 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"firefox$"# title="^Library$"
+    match app-id=r#"floorp$"# title="^Picture-in-Picture$"
+    match app-id=r#"floorp$"# title="^Library$"
     match app-id=r#"vlc$"#
     match app-id=r#"libresprite$"#
     match app-id=r#"waypaper$"#
     match app-id=r#"stacer$"#
 
-    open-floating true
+    tiled-state true
     opacity 1.0
 }
 

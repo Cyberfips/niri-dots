@@ -48,7 +48,7 @@ case ${chosen} in
             openbox) openbox --exit ;;
             bspwm) bspc quit ;;
             i3) i3-msg exit ;;
-            niri) niri-msg exit ;;
+            niri) niri msg action quit --skip-confirmation ;;
             plasma) qdbus org.kde.ksmserver /KSMServer logout 0 0 0 ;;
         esac
         ;;
