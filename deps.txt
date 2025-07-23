@@ -7,9 +7,7 @@ swaybg
 kitty
 xwayland-satellite
 polkit gnome
-swayidle
+sayidle
+swaync
+networkmanager-dmenu
 catppuccin-mocha-mauve-cursors
-CascadiaCode
-Thunar
-blueman
-nm-connections-editor
