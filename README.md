@@ -1,31 +1,67 @@
-# niri-dots
-This is my first niri dot files
+✨ niri-dots
 
-Credits :  @DoubleDotStudios for the niri-dotfiles , @sansroot for the hyprland dots
+    My personalized Niri dotfiles
+    Inspired by @DoubleDotStudios & @sansroot
 
-###Dependencies
+Welcome! These are my custom Niri configuration dotfiles for a slick, minimal, and highly productive Linux Wayland workflow.
+Designed for everyday use in Kovilpatti, Tamil Nadu 🇮🇳.
+🚀 Features
 
-Window manager: Niri
+    Simple & Clean Niri setup
 
-Panel Bar: waybar
+    Carefully chosen applications for each function
 
-Launcher: rofi-wayland
+    Eye-pleasing catppuccin theme integration
 
-XWayland helper: xwayland-satellite
+    Readable CascadiaCode font
 
-Idle manager: swayidle
+    Everything you need, ready to go
 
-Lockscreen: hyprlock
+🛠️ Dependencies
+Component	Choice/Package
+Window Manager	Niri
+Panel Bar	waybar
+Launcher	rofi-wayland
+XWayland Helper	xwayland-satellite
+Idle Manager	swayidle
+Lockscreen	hyprlock
+Terminal	kitty
+Notifications	dunst
+Wallpaper	swaybg
+Polkit Agent	polkit-gnome
+Cursor Theme	catppuccin mocha mauve
+Font	CascadiaCode
+File Manager	Thunar
 
-Terminal: kitty
+🎨 Preview
 
-Notifications: dunst
+Add a screenshot or GIF here!
+Show off your desktop setup by uploading an image to your repo and linking it below:
 
-Wallpaper: swaybg
+text
+![My Niri Desktop Preview](./niri.png)
 
-Polkit agent: polkit-gnome
 
-Cursor: catppuccin mocha mauve cursor theme
+⚡ Getting Started
 
-Font: CascadiaCode
-File manager: Thunar
+    Install all dependencies from the table above.
+
+    Clone this repo:
+
+bash
+git clone https://github.com/yourusername/niri-dots.git ~/.config/niri
+
+Copy/link config files as needed:
+
+    bash
+    cp -r ~/.config/niri/* ~/.config/
+
+    Restart your session and enjoy!
+
+🤝 Credits
+
+    Thanks to @DoubleDotStudios for the original niri-dotfiles
+
+    Shoutout to @sansroot for the Hyprland dots inspiration
+
+
