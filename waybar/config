@@ -3,9 +3,24 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["custom/launcher", "niri/workspaces","custom/swaync"],
-    "modules-center": ["clock","custom/updates"],
-    "modules-right": ["tray", "pulseaudio", "network", "bluetooth", "backlight", "battery", "power-profiles-daemon", "custom/lock" ],
+    "modules-left": [
+        "custom/launcher",
+        "niri/workspaces",
+        "custom/swaync",
+        "cpu",
+        "memory",
+        "network",
+    ],
+    "modules-center": [
+        "clock",
+        "custom/updates",
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "bluetooth",
+        "custom/lock"
+    ],
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -17,85 +32,63 @@
             "urgent": "",
             "active": "",
             "default": ""
-         },
-     },
+        },
+    },
     "tray": {
         "icon-size": 21,
+        "system-tray-icon-size": 21,
         "spacing": 10
     },
-    "custom/launcher":{
+    "custom/launcher": {
         "format": " ",
         "on-click": "bash ~/.config/rofi/launcher.sh",
         "on-click-right": "killall rofi",
         "tooltip": false
     },
-
     "clock": {
-        "timezone": "Asia/Kolkata",
+        "timezone": "Europe/Vienna",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "  {:%d/%m/%Y}",
-        "format": "  {:%I:%M %p}"
+        "format": "  {:%H:%M}"
     },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "rotate": 0,
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-click": "brightnessctl -r",
-				"on-scroll-up": "brightnessctl set 2%+",
-        "on-scroll-down": "brightnessctl set 2%-",
-        "min-length": 6
-    },
- 
     "bluetooth": {
-	"controller": "blueman",
-	"format": "",
-	"format-disabled": "",
-	"format-off": " off",
-	"on-click": "~/.config/rofi/bluetooth.sh",
-	"on-click-right": "blueman-manager"
+        "controller": "blueman",
+        "format": "",
+        "format-disabled": "",
+        "format-off": " off",
+        "on-click": "~/.config/rofi/bluetooth.sh",
+        "on-click-right": "blueman-manager"
     },
-    
-  "custom/swaync": {
-    "tooltip": false,
-    "format": "{} {icon}",
-    "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "",
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true,
-  },
-
-    "battery": {
-        "interval": 30,
-        "states": {
-            "warning": 20,
-            "critical": 10
+    "custom/swaync": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
         "format-muted": " ",
         "format-icons": {
-            "default": [" ", " ", " "]
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",
@@ -104,50 +97,42 @@
         "tooltip": false,
         "on-click": "bash ~/.config/rofi/powermenu.sh",
         "on-click-right": "killall rofi",
-        "format": "⏻ ",
+        "format": "⏻ "
     },
-    
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "{profile}",
-        "tooltip": true,
-        "format-icons": {
-            "performance": "󰓅",
-            "balanced": "󰾅",
-            "power-saver": "󰾆",
-        }
-    },
-
     "custom/power": {
         "tooltip": false,
         "on-click": "bash ~/.config/rofi/powermenu.sh",
         "on-click-right": "killall rofi",
-        "format": "⏻ ",
+        "format": "⏻ "
     },
-
     "custom/updates": {
         "format": "  {}",
         "escape": true,
         "return-type": "text",
         "exec": "~/.config/waybar/update.sh",
         "restart-interval": 60,
-        "on-click": "kitty -e sudo pacman -Syu",
+        "on-click": "kitty -e sudo pacman -Syu"
     },
-
     "niri/language": {
-        "format": "  {short}",
+        "format": "  {short}"
     },
-        "network": {
-        "interface": "wlan0",
-
-        "format": "{ifname}",
+    "network": {
+        "interval": 1,
+        "min-length": 30,
+        "format": "{ifname}: {bandwidthDownBits} ↓ / {bandwidthUpBits} ↑",
         "format-disconnected": "",
-
-        "format-wifi": "  {essid}",
-        "tooltip-format": "{signalStrength}%",
-        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "No Connection",
         "on-click": "networkmanager_dmenu",
-        "on-click-right": "nm-connection-manager",
-    },      
+        "on-click-right": "nm-connection-editor"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "CPU: {avg_frequency}MHz {usage}%",
+        "tooltip": true
+    },
+    "memory": {
+        "interval": 1,
+        "format": "RAM: {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"
+    }
 }
