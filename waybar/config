@@ -9,13 +9,17 @@
         "custom/swaync",
         "cpu",
         "memory",
-        "network",
+        "temperature",
+        "temperature#temp2",
+        "temperature#temp3",
+        "network"
     ],
     "modules-center": [
         "clock",
-        "custom/updates",
+        "custom/updates"
     ],
     "modules-right": [
+        "battery",
         "tray",
         "pulseaudio",
         "bluetooth",
@@ -32,7 +36,7 @@
             "urgent": "",
             "active": "",
             "default": ""
-        },
+        }
     },
     "tray": {
         "icon-size": 21,
@@ -91,7 +95,7 @@
             ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol",
+        "on-click-right": "pavucontrol"
     },
     "custom/lock": {
         "tooltip": false,
@@ -118,7 +122,7 @@
     },
     "network": {
         "interval": 1,
-        "min-length": 30,
+        "min-length": 35,
         "format": "{ifname}: {bandwidthDownBits} ↓ / {bandwidthUpBits} ↑",
         "format-disconnected": "",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
@@ -127,6 +131,7 @@
         "on-click-right": "nm-connection-editor"
     },
     "cpu": {
+        "min-length": 15,
         "interval": 1,
         "format": "CPU: {avg_frequency}MHz {usage}%",
         "tooltip": true
@@ -134,5 +139,32 @@
     "memory": {
         "interval": 1,
         "format": "RAM: {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp3_input",
+        "critical-threshold": 80,
+        "format": " CPU {temperatureC}°C"
+    },
+    "temperature#temp2": {
+        "hwmon-path": "/sys/class/hwmon/hwmon5/subsystem/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        "format": " MB {temperatureC}°C"
+    },
+    "temperature#temp3": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": " GPU {temperatureC}°C"
+    },
+    "battery": {
+        "bat": "steelseries_headset_battery_0",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "Headset: {capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "Headset {capacity}%, empty in {time}",
+        "max-length": 25
     }
 }

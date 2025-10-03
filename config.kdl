@@ -13,6 +13,7 @@ workspace "3"
 prefer-no-csd
 
 environment {
+    LC_ALL "de_AT.UTF-8"
     DISPLAY ":1"
     ELM_DISPLAY "wl"
     GDK_BACKEND "wayland,x11"
@@ -42,7 +43,7 @@ input {
         repeat-delay 350
         repeat-rate 30
         xkb {
-            layout "de"
+            layout "at"
             options "ctrl:nocaps"
         }
 
@@ -112,7 +113,7 @@ layout {
         // top 64
         // bottom 64
     }
-    
+
 }
 
 screenshot-path "~/Bilder/Bildschirmfotos from %Y-%m-%d %H-%M-%S.png"
@@ -162,14 +163,14 @@ window-rule {
 window-rule {
     match app-id="floorp"
     default-column-width { fixed 1425; }
-    draw-border-with-background true    
+    draw-border-with-background true
 }
 
 window-rule {
     match app-id="Brave-browser"
     default-column-width { fixed 1425; }
     draw-border-with-background true
-    open-maximized true    
+    open-maximized true
 }
 
 window-rule {
@@ -425,12 +426,12 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Plus { set-column-width "+10%"; }
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Plus { set-column-width "+5%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Plus { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-5%"; }
+    Mod+Shift+Plus { set-window-height "+5%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
