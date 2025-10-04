@@ -141,16 +141,19 @@
         "format": "RAM: {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"
     },
     "temperature": {
+        "interval": 1,
         "hwmon-path": "/sys/class/hwmon/hwmon0/temp3_input",
         "critical-threshold": 80,
         "format": " CPU {temperatureC}°C"
     },
     "temperature#temp2": {
+        "interval": 1,
         "hwmon-path": "/sys/class/hwmon/hwmon5/subsystem/hwmon1/temp1_input",
         "critical-threshold": 80,
         "format": " MB {temperatureC}°C"
     },
     "temperature#temp3": {
+        "interval": 1,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         "format": " GPU {temperatureC}°C"

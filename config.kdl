@@ -236,7 +236,7 @@ binds {
     Mod+X {spawn "bash" "/home/cyberfips/.config/rofi/powermenu.sh"; }
     //Mod+F { toggle-fullscreen; }
     //Mod+L {spawn "localsend"; }
-    Mod+E {spawn "thunar"; }
+    Mod+E {spawn "dolphin"; }
     Mod+D {spawn "fuzzel"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
